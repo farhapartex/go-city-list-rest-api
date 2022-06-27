@@ -34,6 +34,10 @@ func main() {
 	RapidApiKey := os.Getenv("RapidApiKey")
 	RapidAPIHost := os.Getenv("RapidAPIHost")
 
+	if RapidApiKey == "" || RapidAPIHost == "" {
+		log.Fatal("Value not found in env file")
+	}
+
 	r := gin.New()
 
 	r.GET("/", func(c *gin.Context) {
